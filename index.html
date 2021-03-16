@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>8 de Marzo</title>
+	<meta charset="utf-8">
+</head>
+<style type="text/css">
+	body {
+		background-color: rgb(255,249,119);
+		z-index: 1; 
+	}
+	.barra {
+		position: absolute;
+		background-color: rgb(206,239,107);
+		left: 10%;
+		top: 5%;
+		width: 80%;
+		height: 10%;
+		z-index: 3;
+	}
+	.p1{
+		position: absolute;
+		border-style: none;
+		border-color: black;
+		left: 5%;
+		top: -65%;
+		height: 90%;
+		width: 17.5%;
+		font-size: 300%;
+		font-family: 'Bodoni MT Black';
+	}
+	.p2{
+		position: absolute;
+		border-style: none;
+		border-color: black;
+		left: 27.5%;
+		top: -65%;
+		height: 90%;
+		width: 17.5%;
+		font-size: 300%;
+		font-family: 'Bodoni MT Black';
+	}
+	.p3 {
+		position: absolute;
+		border-style: none;
+		border-color: black;
+		left: 55%;
+		top: -65%;
+		height: 90%;
+		width: 17.5%;
+		font-size: 300%;
+		font-family: 'Bodoni MT Black';
+	}
+	.p4 {
+		position: absolute;
+		border-style: none;
+		border-color: black;
+		left: 77.5%;
+		top: -65%;
+		height: 90%;
+		width: 17.5%;
+		font-size: 300%;
+		font-family: 'Bodoni MT Black';
+	}
+	.cuadro{
+		position: absolute;
+		display: block;
+        left: ;
+        top: ;
+		width: ;
+		height: ;
+		background-color: rgb(206,239,107);
+		z-index: 3;
+	}
+	.fin{
+		position: absolute;
+		left: 30%;
+		width: 40%;
+		height: 40%;
+		top: 30%;
+		border-radius: 15%;
+		background-color: rgb(252,252,252, 0.5);
+		border-color: rgb(0,0,0, 1);
+		border-width: 10px;
+		border-style: solid;
+		text-align: center;
+	}
+	.fintexto{
+		position: absolute;
+		width: 40%;
+		top: 47%;
+		left: 30%;
+		font-family: 'Bodoni MT Black';
+		font-size: 300%;
+		color: black;
+		text-align: center;
+	}
+	.nofin{
+		display: none;
+	}
+	
+</style>
+<script type="text/javascript">
+
+	a=0;
+	num1=0;
+	width=0;
+	height=0;
+	ancho=0;
+	alto=0;
+	top=0;
+	left=0;
+	x=0;
+	segundos=60;
+	seg=parseInt(segundos);
+	regre=0;
+	chola=0;
+
+	function primerazar() {
+		var cu = document.getElementById('obj');
+		a = Math.floor(Math.random() * ((3+1) - 1) + 1);
+		num1=parseInt(a);
+		var y=0;
+
+		if (num1==1) {
+              width = Math.floor(Math.random() * ((350+1) - 234) + 234);
+              ancho = parseInt(width);
+              height = Math.floor(Math.random() * ((300+1) - 201) + 201);
+              alto = parseInt(height);
+              chola = Math.floor(Math.random() * ((331+1) - 131) + 131);
+              y = parseInt(chola);
+              left = Math.floor(Math.random() * ((950+1) - 68) + 68);
+              x=parseInt(left);
+		}
+		if (num1==2) {
+              width = Math.floor(Math.random() * ((233+1) - 118) + 118);
+              ancho = parseInt(width);
+              height = Math.floor(Math.random() * ((200+1) - 101) + 101);
+              alto = parseInt(height);
+              chola = Math.floor(Math.random() * ((436+1) - 131) + 131);
+              y = parseInt(chola);
+              left = Math.floor(Math.random() * ((1065+1) - 68) + 68);
+              x=parseInt(left);
+		}
+		if (num1==3) {
+              width = Math.floor(Math.random() * ((117+1) - 13) + 13);
+              ancho = parseInt(width);
+              height = Math.floor(Math.random() * ((100+1) - 11) + 11);
+              alto = parseInt(height);
+              chola = Math.floor(Math.random() * ((331+1) - 131) + 131);
+              y = parseInt(chola);
+              left = Math.floor(Math.random() * ((1185+1) - 68) + 68);
+              x=parseInt(left);
+		}
+
+		punt = document.getElementById('segundos');
+		punt.innerHTML = seg;
+		regre=setInterval(cuenta,1000);
+
+		cu.style.width = ancho + "px";
+		cu.style.height = alto + "px";
+		cu.style.left = x + "px";
+        cu.style.top = y + 'px';
+        
+	}
+
+	function cuenta() {
+           seg = seg-1;
+           
+           if (seg==-1) {
+                clearInterval(regre);
+           }  else {
+           			punt.innerHTML = seg;
+           }
+           if (seg==0) {
+           	var da = document.getElementById('obj');
+           	var score = document.getElementById('puntos');
+            var valor = parseInt(score.innerHTML);
+            var textfin = document.getElementById('textofin');
+            textfin.className = "fintexto";
+           	 da.style.display = "none";
+           	 var final = document.getElementById('fin');
+           	 textfin.innerHTML = "Obtuviste: " + valor + " puntos";
+           	 score.innerHTML = 0;
+           	 final.className = "fin";
+           }   
+	}
+
+	function cambio() {
+		var te = document.getElementById('obj');
+       var score = document.getElementById('puntos');
+       var valor = parseInt(score.innerHTML);
+       var y = 0;
+       if (num1==1) {
+       	valor = valor + 10;
+       }
+       if (num1==2) {
+       	valor = valor + 20;
+       }
+       if (num1==3) {
+       	valor = valor + 30;
+       }
+       score.innerHTML = valor;
+
+	a = Math.floor(Math.random() * ((3+1) - 1) + 1);
+		num1=parseInt(a);
+
+		if (num1==1) {
+              width = Math.floor(Math.random() * ((350+1) - 234) + 234);
+              ancho = parseInt(width);
+              height = Math.floor(Math.random() * ((300+1) - 201) + 201);
+              alto = parseInt(height);
+              chola = Math.floor(Math.random() * ((331+1) - 131) + 131);
+              y = parseInt(chola);
+              left = Math.floor(Math.random() * ((950+1) - 68) + 68);
+              x=parseInt(left);
+		}
+		if (num1==2) {
+              width = Math.floor(Math.random() * ((233+1) - 118) + 118);
+              ancho = parseInt(width);
+              height = Math.floor(Math.random() * ((200+1) - 101) + 101);
+              alto = parseInt(height);
+              chola = Math.floor(Math.random() * ((436+1) - 131) + 131);
+              y = parseInt(chola);
+              left = Math.floor(Math.random() * ((1065+1) - 68) + 68);
+              x=parseInt(left);
+		}
+		if (num1==3) {
+              width = Math.floor(Math.random() * ((117+1) - 13) + 13);
+              ancho = parseInt(width);
+              height = Math.floor(Math.random() * ((100+1) - 11) + 11);
+              alto = parseInt(height);
+              chola = Math.floor(Math.random() * ((331+1) - 131) + 131);
+              y = parseInt(chola);
+              left = Math.floor(Math.random() * ((1185+1) - 68) + 68);
+              x=parseInt(left);
+		}
+
+
+		te.style.width = ancho + "px";
+		te.style.height = alto + "px";
+		te.style.left = x + "px";
+        te.style.top = y+"px";
+
+	}
+	
+</script>
+<body onload="primerazar()">
+
+	<div class="barra">
+		<p class="p1" >SCORE:</p>
+		<p class="p2" id="puntos">0</p>
+		<p class="p3">TIME:</p>
+		<p class="p4" id="segundos"></p>
+	</div>
+
+	<div class="imp"></div>
+
+	<div class="cuadro" id="obj" onmousedown="cambio()"></div>
+	<div class="nofin" id="fin"></div>
+    <div class="nofin" id="textofin"></d>
+</body>
+</html>
